@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head id="head">
+
+</head>
+
+<body id="body">
+
+    <script>
+
+        var tbl = document.createElement("table");
+        var n = 10;
+        var m = 10;
+
+        for (let i = 0; i < n; i++) {
+            var tr = document.createElement("tr")
+            tbl.appendChild(tr);
+            for (let j = 0; j < m; j++) {
+                function reqListener() {
+                    console.log(this.responseText);
+                }
+
+                var oReq = new XMLHttpRequest();
+                oReq.onload = reqListener;
+                oReq.open("get", "script.js", true);
+
+                var a = parseInt(oReq.send());
+                console.log(a);
+                if (a == 1 || a == 2 || a == 3) {
+                    var td = document.createElement("td");
+                    td.setAttribute("style", "background-color: grey;");
+                    td.setAttribute("border", "1px solid black");
+                    td.setAttribute("width", "40px");
+                    td.setAttribute("height", "40px");
+                    tr.appendChild(td);
+                }
+                else if (a == 4 || a == 5 || a == 6) {
+                    var td = document.createElement("td");
+                    td.setAttribute("style", "background-color: brown;");
+                    td.setAttribute("border", "1px solid black");
+                    td.setAttribute("width", "40px");
+                    td.setAttribute("height", "40px");
+                    tr.appendChild(td);
+                }
+                else {
+                    var td = document.createElement("td");
+                    td.setAttribute("style", "background-color: blue;");
+                    td.setAttribute("border", "1px solid black");
+                    td.setAttribute("width", "40px");
+                    td.setAttribute("height", "40px");
+                    tr.appendChild(td);
+                }
+            }
+        }
+        var elem = document.getElementById("body");
+        elem.appendChild(tbl);
+    </script>
+</body>
+
+</html>
